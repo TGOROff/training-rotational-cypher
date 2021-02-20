@@ -13,7 +13,23 @@ import math
 
 
 def rotationalCipher(input, rotation_factor):
-    # Write your code here
+   result = ""
+   for i in input:
+
+       if i.isalpha():
+           if i.islower():
+               result += chr((ord(i) - ord('a') + rotation_factor) % 26 + ord('a'))
+           else:
+               result += chr((ord(i) - ord('A') + rotation_factor) % 26 + ord('A'))
+       elif i.isdigit():
+           ch = str((int(i) + rotation_factor) % 10)
+           result += ch
+       else:
+           result += i
+
+   return result
+
+
 
 
 
